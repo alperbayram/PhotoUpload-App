@@ -1,0 +1,84 @@
+<%- include("partials/_header") -%>
+
+<body>
+	<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+<%- include("partials/_nav") -%>
+
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-1">
+				<div class="text-center">
+					<p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 text-white mx-auto">Background image can be fixed. Content will simply slide over.</p>                	
+				</div>                
+            </div>
+
+			<!-- Header image -->
+            <div id="tm-fixed-header-bg"></div> 
+		</div>
+
+		<!-- Page content -->
+		<div class="container-fluid">
+			<div class="mx-auto tm-content-container">
+				<main>
+					<div class="row mb-5 pb-4">
+						<div class="col-12">
+							<!-- Video player 1422x800 -->
+							<img width="1422" height="800" src="<%= photo.image %>">
+						</div>
+					</div>
+					<div class="row mb-5 pb-5">
+						<div class="col-xl-8 col-lg-7">
+							<!-- Video description -->
+							<div class="tm-video-description-box">
+								<h2 class="mb-5 tm-video-title"> <%= photo.title %> </h2>
+								<p class="mb-4"> <%= photo.description %> </p>
+								</div>							
+						</div>
+						<div class="col-xl-4 col-lg-5">
+							<!-- Share box -->
+							<div class="tm-bg-gray tm-share-box">
+								<h6 class="tm-share-box-title mb-4">Share this video</h6>
+								<div class="mb-5 d-flex">
+									<a href="" class="tm-bg-white tm-share-button"><i class="fab fa-facebook"></i></a>
+									<a href="" class="tm-bg-white tm-share-button"><i class="fab fa-twitter"></i></a>
+									<a href="" class="tm-bg-white tm-share-button"><i class="fab fa-pinterest"></i></a>
+									<a href="" class="tm-bg-white tm-share-button"><i class="far fa-envelope"></i></a>
+								</div>
+								<p class="mb-4">Author: <a href="https://templatemo.com" class="tm-text-link">TemplateMo</a></p>
+								<div>
+									<a href="/photos/edit/<%= photo._id %>">
+									<button class="btn btn-primary p-0 tm-btn-animate tm-btn-download tm-icon-download "><span>Upd Details</span></button>
+								</a>
+								</div>
+								<div class="pt-3">
+									<a href="/photos/<%= photo._id %>?_method=DELETE" onclick="return confirm('ARE YOU SURE ?')">
+									<button class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download" ><span>Delete</span></button>
+								</a>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</main>
+
+				<!-- Subscribe form and footer links -->
+                <%- include("partials/_footer") -%>
+
+			</div> <!-- .tm-content-container -->
+		</div>
+	</div>
+
+    <script>
+    	$(document).ready(function() {
+    		$('.tm-likes-box').click(function(e) {
+    			e.preventDefault();
+    			$(this).toggleClass('tm-liked');
+
+    			if($(this).hasClass('tm-liked')) {
+    				$('#tm-likes-count').html('486 likes');
+    			} else {
+    				$('#tm-likes-count').html('485 likes');
+    			}
+    		});
+    	});
+    </script>
+</body>
+</html>
