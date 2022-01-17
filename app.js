@@ -4,13 +4,17 @@ var methodOverride = require('method-override');
 const fileUpload = require('express-fileupload');
 const PhotoContoller = require('./controllers/PhotoControllers');
 const PageContoller = require('./controllers/PageControllers');
+const dotenv = require('dotenv');
+
 
 const app = express();
+
+dotenv.config();
 
 //connect db
 mongoose
   .connect(
-    'mongodb+srv://alperbayram:4NDuyNjqxwcDW3R@cluster0.jna2i.mongodb.net/pcat-db?retryWrites=true&w=majority'
+    `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.jna2i.mongodb.net/pcat-db?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log('DB Connected');
