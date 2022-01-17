@@ -17,10 +17,7 @@
             </div>
 
             <div id="tm-video-container">
-                <video autoplay muted loop id="tm-video">
-                    <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
-                        <source src="video/wheat-field.mp4" type="video/mp4">
-                </video>    
+               <img src="img/main.jpg" class="img-fluid" alt="Responsive image">  
             </div>
             
             <i id="tm-video-control-button" class="fas fa-pause"></i>
@@ -29,21 +26,7 @@
         <div class="container-fluid">
             <div id="content" class="mx-auto tm-content-container">
                 <main>
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="tm-page-title mb-4">Our Video Catalog</h2>
-                            <div class="tm-categories-container mb-5">
-                                <h3 class="tm-text-primary tm-categories-text">Categories:</h3>
-                                <ul class="nav tm-category-list">
-                                    <li class="nav-item tm-category-item"><a href="#" class="nav-link tm-category-link active">All</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="nav-link tm-category-link">Drone Shots</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="nav-link tm-category-link">Nature</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="nav-link tm-category-link">Actions</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="nav-link tm-category-link">Featured</a></li>
-                                </ul>
-                            </div>        
-                        </div>
-                    </div>
+                  
                     
                     <div class="row tm-catalog-item-list">
                         <% for(let i=0; i < photos.length; i++){ %>
@@ -64,13 +47,19 @@
 
                     <!-- Catalog Paging Buttons -->
                     <div>
+                     <%   if( pages > 0){ %>
                         <ul class="nav tm-paging-links">
-                            <li class="nav-item active"><a href="#" class="nav-link tm-paging-link">1</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link tm-paging-link">2</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link tm-paging-link">3</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link tm-paging-link">4</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link tm-paging-link">></a></li>
+                            <%  for(let i=1; i<= pages; i++){  %>
+                                <% if(i == current ){ %>
+                                    <li class="nav-item active"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                                    <%  }  else if (i < pages) { %>
+                                    <li class="nav-item"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                                    <% } else { %>
+                                    <li class="nav-item "><a href="/?page=<%= i %>" class="nav-link tm-paging-link">></a></li>
+                                    <%   } %>
+                            <%  }  %>
                         </ul>
+                        <%  } %>
                     </div>
                 </main>
 
