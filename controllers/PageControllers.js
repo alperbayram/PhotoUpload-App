@@ -1,6 +1,5 @@
 const Photo = require('../models/Photo');
 
-
 exports.aboutPage = (req, res) => {
   res.render('about');
 };
@@ -15,4 +14,3 @@ exports.editPage = async (req, res) => {
     photo,
   });
 };
-
