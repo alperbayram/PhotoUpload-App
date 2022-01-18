@@ -51,8 +51,8 @@ exports.createPhoto = async (req, res) => {
       ...req.body,
       image: '/uploads/' + uploadedImage.name,
     });
+    res.redirect('/');
   });
-  res.redirect('/');
 };
 
 exports.updatePhotos = async (req, res) => {

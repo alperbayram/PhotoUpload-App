@@ -1,4 +1,5 @@
-# Node.js PCAT
+# Node.js Photo Upload App
+This web application includes in uploading photo, photo description, update and deletion processes.
 
 ## Prerequisites
 
@@ -11,12 +12,12 @@
 ## Installation
 Clone the repo
 ```bash 
-  git clone https://github.com/alperbayram/PCAT.git
+  git clone https://github.com/alperbayram/PhotoUpload-App.git
 ```
 
 Open folder
 ```bash 
-  cd PCAT
+  cd PhotoUpload-App
 ```
 
 Install NPM packages
